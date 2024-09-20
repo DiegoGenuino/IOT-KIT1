@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,9 @@
 <body>
 
     <form action="/submit-config" method="POST">
+
         <div class="autenticacao-rede">
+            <h1>IOT KIT</h1>
             <h2>Autenticação de Rede</h2>
 
             <!-- SSID -->
@@ -25,44 +27,28 @@
             <!-- Mostrar senha -->
             <label for="show-password">Mostrar senha</label>
             <input type="checkbox" id="show-password" onclick="togglePassword()">
-<script>
+
+        </div>
+
+        <script>
             // Mostrar senha digitada no input
             function togglePassword() {
-                var passwordField = document.getElementById("senha");
+                let passwordField = document.getElementById("senha");
                 if (passwordField.type === "password") {
                     passwordField.type = "text";
                 } else {
                     passwordField.type = "password";
                 }
             }
-</script>
+
+        </script>
 
 
-            <!-- Tipo de Segurança -->
-            <label for="security">Tipo de Segurança:</label>
-            <select id="security" name="security">
-                <option value="WPA2">WPA2</option>
-                <option value="WPA">WPA</option>
-                <option value="WEP">WEP</option>
-                <option value="WPA3">WPA3</option>
-            </select>
 
-            <!-- Canal de Frequência -->
-            <label for="channel">Canal de Frequência:</label>
-            <input type="number" id="channel" name="channel" placeholder="Ex: 6">
 
-            <!-- Banda de operação -->
-            <label for="band">Banda:</label>
-            <select id="band" name="band">
-                <option value="2.4">2.4 GHz</option>
-                <option value="5">5 GHz</option>
-            </select>
 
-            <!-- Rede Oculta -->
-            <label for="hidden-ssid">Rede Oculta</label>
-            <input type="checkbox" id="hidden-ssid" name="hidden-ssid">
 
-        </div>
+
 
         <div class="enderecos-rede">
             <h2>Endereços de Rede</h2>
@@ -71,20 +57,23 @@
             <label>Tipo de IP:</label>
             <input type="radio" id="ip-dinamico" name="ip-type" value="dinamico" checked>
             <label for="ip-dinamico">IP Dinâmico</label>
-            <input type="radio" id="ip-estatico" name="ip-type" value="estatico">
+            <input type="radio" id="ip-estatico" name="ip-type" value="estatico" onclick="ToggleDinamico()">
             <label for="ip-estatico">IP Estático</label>
+            <div class="options">
+                <!-- Gateway da Rede -->
+                <label for="gateway">Gateway da Rede:</label>
+                <input type="text" id="gateway" name="gateway" placeholder="Ex: 192.168.10.1">
 
-            <!-- Gateway da Rede -->
-            <label for="gateway">Gateway da Rede:</label>
-            <input type="text" id="gateway" name="gateway" placeholder="Ex: 192.168.10.1">
+                <!-- Máscara de Sub-rede -->
+                <label for="mascara">Máscara de Sub-rede:</label>
+                <input type="text" id="mascara" name="mascara" placeholder="Ex: 255.255.255.0">
 
-            <!-- Máscara de Sub-rede -->
-            <label for="mascara">Máscara de Sub-rede:</label>
-            <input type="text" id="mascara" name="mascara" placeholder="Ex: 255.255.255.0">
+                <!-- Endereço IP da Rede -->
+                <label for="ip">Endereço IP da Rede:</label>
+                <input type="text" id="ip" name="ip" placeholder="Ex: 192.168.10.100">
 
-            <!-- Endereço IP da Rede -->
-            <label for="ip">Endereço IP da Rede:</label>
-            <input type="text" id="ip" name="ip" placeholder="Ex: 192.168.10.100">
+            </div>
+
         </div>
 
 
@@ -123,7 +112,7 @@
                 <input type="email" id="email-firebase" name="email" placeholder="Ex: exemplo@email.com">
 
                 <label for="senha-firebase">Senha:</label>
-                <input type="password" id="senha-firebase" name="senha" placeholder="Autenticação ao banco de dados">
+                <input type="password" id="senha-firebase" name="senha" placeholder="Autenticação">
 
                 <label for="chave-api">Chave API:</label>
                 <input type="text" id="chave-api" name="chave-api" placeholder="Digite sua chave API">
@@ -143,7 +132,7 @@
         </div>
 
     </form>
-<script type="module" src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
