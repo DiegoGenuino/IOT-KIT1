@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <form action="/submit-config" method="POST">
+        <div class="autenticacao-rede">
+            <h2>Autenticação de Rede</h2>
+
+            <!-- SSID -->
+            <label for="ssid">SSID da Rede:</label>
+            <input type="text" id="ssid" name="ssid" placeholder="Ex: senai123">
+
+            <!-- Senha -->
+            <label for="senha">Senha da Rede:</label>
+            <input type="password" id="senha" name="senha" placeholder="Ex: senai123">
+
+            <!-- Mostrar senha -->
+            <label for="show-password">Mostrar senha</label>
+            <input type="checkbox" id="show-password" onclick="togglePassword()">
+<script>
+            // Mostrar senha digitada no input
+            function togglePassword() {
+                var passwordField = document.getElementById("senha");
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                } else {
+                    passwordField.type = "password";
+                }
+            }
+</script>
+
+
+            <!-- Tipo de Segurança -->
+            <label for="security">Tipo de Segurança:</label>
+            <select id="security" name="security">
+                <option value="WPA2">WPA2</option>
+                <option value="WPA">WPA</option>
+                <option value="WEP">WEP</option>
+                <option value="WPA3">WPA3</option>
+            </select>
+
+            <!-- Canal de Frequência -->
+            <label for="channel">Canal de Frequência:</label>
+            <input type="number" id="channel" name="channel" placeholder="Ex: 6">
+
+            <!-- Banda de operação -->
+            <label for="band">Banda:</label>
+            <select id="band" name="band">
+                <option value="2.4">2.4 GHz</option>
+                <option value="5">5 GHz</option>
+            </select>
+
+            <!-- Rede Oculta -->
+            <label for="hidden-ssid">Rede Oculta</label>
+            <input type="checkbox" id="hidden-ssid" name="hidden-ssid">
+
+        </div>
+
+        <div class="enderecos-rede">
+            <h2>Endereços de Rede</h2>
+
+            <!-- IP Dinâmico ou Estático -->
+            <label>Tipo de IP:</label>
+            <input type="radio" id="ip-dinamico" name="ip-type" value="dinamico" checked>
+            <label for="ip-dinamico">IP Dinâmico</label>
+            <input type="radio" id="ip-estatico" name="ip-type" value="estatico">
+            <label for="ip-estatico">IP Estático</label>
+
+            <!-- Gateway da Rede -->
+            <label for="gateway">Gateway da Rede:</label>
+            <input type="text" id="gateway" name="gateway" placeholder="Ex: 192.168.10.1">
+
+            <!-- Máscara de Sub-rede -->
+            <label for="mascara">Máscara de Sub-rede:</label>
+            <input type="text" id="mascara" name="mascara" placeholder="Ex: 255.255.255.0">
+
+            <!-- Endereço IP da Rede -->
+            <label for="ip">Endereço IP da Rede:</label>
+            <input type="text" id="ip" name="ip" placeholder="Ex: 192.168.10.100">
+        </div>
+
+
+        <div class="modo-operacao">
+            <h2>Modo de Operação</h2>
+
+            <!-- Modo Servidor ou Cliente -->
+            <label>Selecione o Modo:</label>
+            <input type="radio" id="modo-servidor" name="modo" value="servidor" checked>
+            <label for="modo-servidor">Servidor (HTTP)</label>
+            <input type="radio" id="modo-cliente" name="modo" value="cliente">
+            <label for="modo-cliente">Cliente (MQTT)</label>
+
+            <!-- Broker MQTT (aparece apenas se modo Cliente for selecionado) -->
+            <div id="broker-div" style="display: none;">
+                <label for="broker">Broker (MQTT):</label>
+                <input type="text" id="broker" name="broker" placeholder="Ex: 123.456.789.012">
+            </div>
+        </div>
+
+
+
+        <div class="banco-dados">
+            <h2>Banco de Dados</h2>
+
+            <!-- Integração com Firebase -->
+            <label>Usar Firebase?</label>
+            <input type="radio" id="usar-firebase-sim" name="usar-firebase" value="sim" checked>
+            <label for="usar-firebase-sim">Sim</label>
+            <input type="radio" id="usar-firebase-nao" name="usar-firebase" value="nao">
+            <label for="usar-firebase-nao">Não</label>
+
+            <!-- Campos para o Firebase (aparecem apenas se "Sim" for selecionado) -->
+            <div id="firebase-auth" style="display: block;">
+                <label for="email-firebase">Email:</label>
+                <input type="email" id="email-firebase" name="email" placeholder="Ex: exemplo@email.com">
+
+                <label for="senha-firebase">Senha:</label>
+                <input type="password" id="senha-firebase" name="senha" placeholder="Autenticação ao banco de dados">
+
+                <label for="chave-api">Chave API:</label>
+                <input type="text" id="chave-api" name="chave-api" placeholder="Digite sua chave API">
+
+                <label for="url-banco">URL do Banco de Dados:</label>
+                <input type="text" id="url-banco" name="url-banco" placeholder="URL do banco de dados">
+
+                <label for="porta-padrao">Porta Padrão:</label>
+                <input type="number" id="porta-padrao" name="porta-padrao" placeholder="Ex: 8080">
+            </div>
+        </div>
+
+
+
+        <div class="submit-btn">
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+<script type="module" src="script.js"></script>
+</body>
+
+</html>

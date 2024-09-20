@@ -1,0 +1,106 @@
+/* Estilo geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2B2B2B; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1c1c1c; /* Fundo escuro para o formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    width: 80%;
+}
+
+/* Seções do formulário */
+form > div {
+    flex: 1;
+    margin: 0 10px;
+}
+
+h2 {
+    text-align: center;
+    color: #32ff7e; /* Verde neon */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #2b2b2b;
+    border: 1px solid #32ff7e;
+    border-radius: 5px;
+    color: #fff;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+/* Botão de submissão */
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[type="submit"] {
+    background-color: #32ff7e;
+    color: #1c1c1c;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #2bff00;
+}
+
+/* Estilos dinâmicos */
+#broker-div, #firebase-auth {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+
+    form > div {
+        margin-bottom: 20px;
+    }
+
+    .submit-btn {
+        margin-top: 20px;
+    }
+}
