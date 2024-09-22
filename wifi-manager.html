@@ -31,6 +31,7 @@
         </div>
 
         <script>
+
             // Mostrar senha digitada no input
             function togglePassword() {
                 let passwordField = document.getElementById("senha");
@@ -125,6 +126,24 @@
             </div>
         </div>
 
+        <!--Campo de bluetooth-->
+        <div id="bluetooth">
+            <h2>Bluetooth</h2>
+
+            <div class="blue_choose">
+                <label>Com conexão bluetooth</label>
+                <input type="radio" id="com_blue" name="usar_blue" value="true" checked>
+
+                <label>Sem conexão bluetooth</label>
+                <input type="radio" id="sem_blue" name="usar_blue" value="false">
+            </div>
+
+            <label>Nome da rede <i>bluetooh</i></label>
+            <input type="text" placeholder="Ex: Rede1">
+
+            <label>PIN</label>
+            <input type="number" placeholder="Ex: 192.168.10.1">
+        </div>
 
 
         <div class="submit-btn">
