@@ -66,7 +66,6 @@ label {
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
-    
 }
 
 input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
@@ -120,7 +119,7 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-
+/*Porque essa parte tá comentada???
 
 
 
@@ -141,8 +140,14 @@ button[type="submit"]:hover {
 }
     */
 
+<<<<<<< HEAD
 
 .autenticacao-rede, .enderecos-rede, .modo-operacao, .bluetooth, .banco-dados{
+=======
+/*Se são todas iguais, não era mais facil aplicar essas configurações
+a sections em geral e tonar as div em section*/
+.autenticacao-rede {
+>>>>>>> 4dbe0182f16cd7913eec2ba6139525e1f39dfc25
     background-color: #000000;
     border: 1px solid black;
     border-radius: 10px;
@@ -151,10 +156,21 @@ button[type="submit"]:hover {
     padding-top: 10px;
 }
 
+#bluetooth{
+    background-color: #000000;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 10px;
+}
+
 #show-password {
     display: inline-block;
 }
 
+.blue_choose{
+    display: flex;
+}
 
  /*
  input[type="radio"], label {

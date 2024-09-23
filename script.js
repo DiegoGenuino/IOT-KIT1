@@ -27,7 +27,10 @@ document.getElementsByName('usar-firebase').forEach(radio => {
 // Mostrar ou esconder os campos de IP estático
 document.getElementsByName('ip-type').forEach(radio => {
     radio.addEventListener('change', function () {
-        const ipDetalhesDiv = document.getElementById('options');
-        ipDetalhesDiv.style.display = this.value === 'estatico' ? 'block' : 'none';
-    });
-    });
+        if (this.value === 'cliente') {
+            document.getElementById('broker-div').style.display = 'block';
+        } else {
+            document.getElementById('broker-div').style.display = 'none';
+        }
+    });
+});
