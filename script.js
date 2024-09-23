@@ -10,7 +10,7 @@ document.getElementsByName('modo').forEach(radio => {
     });
 });
 
-// Mostrar ou esconder os campos do Firebase quando "Sim" ou "Não" forem selecionados
+/* Mostrar ou esconder os campos do Firebase quando "Sim" ou "Não" forem selecionados
 document.getElementsByName('usar-firebase').forEach(radio => {
     radio.addEventListener('change', function () {
         if (this.value === 'sim') {
@@ -19,15 +19,15 @@ document.getElementsByName('usar-firebase').forEach(radio => {
             document.getElementById('firebase-auth').style.display = 'none';
         }
     });
-});
+});*/
 
-// Mostrar o campo de Broker quando o modo Cliente (MQTT) for selecionado
-document.getElementsByName('ToggleDinamico').forEach(radio => {
+
+
+
+// Mostrar ou esconder os campos de IP estático
+document.getElementsByName('ip-type').forEach(radio => {
     radio.addEventListener('change', function () {
-        if (this.value === 'cliente') {
-            document.getElementById('broker-div').style.display = 'block';
-        } else {
-            document.getElementById('broker-div').style.display = 'none';
-        }
-    });
-});
+        const ipDetalhesDiv = document.getElementById('options');
+        ipDetalhesDiv.style.display = this.value === 'estatico' ? 'block' : 'none';
+    });
+    });

@@ -9,7 +9,7 @@
 
 body {
     font-family: "Inria Sans", sans-serif;
-    background-color: #2B2B2B; /* Fundo escuro */
+    background-color: #1c1c1c; /* Fundo escuro */
     color: #fff; /* Texto branco */
     margin: 0;
     padding: 0;
@@ -41,6 +41,7 @@ form {
     height: 100%;
     gap: 15px;
     flex-direction: column;
+    
 }
 
 /* Seções do formulário */
@@ -49,12 +50,16 @@ form > div {
     margin: 0 10px;
 }
 
+
+
+
 h2 {
     font-family: "Inria Sans", sans-serif;
     text-align: center;
     color: #ffffff; /* Verde neon */
     margin-bottom: 20px;
     font-weight: bold;
+
 }
 
 label {
@@ -76,13 +81,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 
 input[type="radio"], input[type="checkbox"] {
     margin-right: 15px;
-    
 }
 
 input[type="checkbox"] + label,
 input[type="radio"] + label {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 2x;
     font-size: 14px;
 }
 
@@ -103,6 +107,7 @@ button[type="submit"] {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    margin-bottom: 20px;
 }
 
 button[type="submit"]:hover {
@@ -110,10 +115,12 @@ button[type="submit"]:hover {
 }
 
 /* Estilos dinâmicos */
-#broker-div, #firebase-auth {
+#broker-div, #firebase-auth, #bluetooth-div, #options{
     display: none;
     margin-top: 20px;
 }
+
+
 
 
 
@@ -132,38 +139,16 @@ button[type="submit"]:hover {
         margin-top: 20px;
     }
 }
-*/
+    */
 
-.autenticacao-rede {
+
+.autenticacao-rede, .enderecos-rede, .modo-operacao, .bluetooth, .banco-dados{
     background-color: #000000;
     border: 1px solid black;
     border-radius: 10px;
     padding: 40px;
     margin-top: 10px;
-}
-
-.enderecos-rede {
-    background-color: #000000;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 40px;
-    margin-top: 10px;
-}
-
-.modo-operacao {
-    background-color: #000000;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 40px;
-    margin-top: 10px;
-}
-
-.banco-dados {
-    background-color: #000000;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 30px;
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 #show-password {
@@ -174,4 +159,10 @@ button[type="submit"]:hover {
  /*
  input[type="radio"], label {
     margin-right: -2px;
- }
+ } 
+    */
+
+
+    #usar-firebase-sim:checked ~ #firebase-auth {
+        display: block;
+    }

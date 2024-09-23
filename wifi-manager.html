@@ -54,12 +54,14 @@
             <h2>Endereços de Rede</h2>
 
             <!-- IP Dinâmico ou Estático -->
+
             <label>Tipo de IP:</label>
             <input type="radio" id="ip-dinamico" name="ip-type" value="dinamico" checked>
             <label for="ip-dinamico">IP Dinâmico</label>
-            <input type="radio" id="ip-estatico" name="ip-type" value="estatico" onclick="ToggleDinamico()">
+            <input type="radio" id="ip-estatico" name="ip-type" value="estatico">
             <label for="ip-estatico">IP Estático</label>
-            <div class="options">
+            <div id="options">
+
                 <!-- Gateway da Rede -->
                 <label for="gateway">Gateway da Rede:</label>
                 <input type="text" id="gateway" name="gateway" placeholder="Ex: 192.168.10.1">
@@ -73,6 +75,10 @@
                 <input type="text" id="ip" name="ip" placeholder="Ex: 192.168.10.100">
 
             </div>
+
+
+
+
 
         </div>
 
@@ -92,6 +98,32 @@
                 <label for="broker">Broker (MQTT):</label>
                 <input type="text" id="broker" name="broker" placeholder="Ex: 123.456.789.012">
             </div>
+
+
+        </div>
+
+
+
+        <div class="bluetooth">
+            <h2>Bluetooth</h2>
+
+            <!-- Selecionar Bluetooth -->
+            <label>Habilitar Bluetooth</label>
+            <input type="radio" id="bluetooth-ligado" name="bt-status" value="bluetooth-ligado" checked>
+            <label for="bt-ligado">Sim</label>
+            <input type="radio" id="bluetooth-desligado" name="bt-status" value="bluetooth-desligado">
+            <label for="bt-desligado">Não</label>
+
+            <!-- Broker MQTT (aparece apenas se modo Cliente for selecionado) -->
+            <div id="bluetooth-div" style="display: none;">
+                <label for="nome bluetooth">Nome da rede:</label>
+                <input type="text" id="nome-bluetooth" name="nome-bluetooth" placeholder="Senai Anchieta">
+            </div>
+
+            <div id="bluetooth-div" style="display: none;">
+                <label for="pin-bluetooth">PIN:</label>
+                <input type="text" id="pin-bluetooth" name="pin-bluetooth" placeholder="0287362">
+            </div>
         </div>
 
 
@@ -107,7 +139,7 @@
             <label for="usar-firebase-nao">Não</label>
 
             <!-- Campos para o Firebase (aparecem apenas se "Sim" for selecionado) -->
-            <div id="firebase-auth" style="display: block;">
+            <div id="firebase-auth">
                 <label for="email-firebase">Email:</label>
                 <input type="email" id="email-firebase" name="email" placeholder="Ex: exemplo@email.com">
 
@@ -123,12 +155,13 @@
                 <label for="porta-padrao">Porta Padrão:</label>
                 <input type="number" id="porta-padrao" name="porta-padrao" placeholder="Ex: 8080">
             </div>
+
         </div>
 
 
 
         <div class="submit-btn">
-            <button type="submit">Submit</button>
+            <button type="submit">Enviar</button>
         </div>
 
     </form>
