@@ -1,172 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <form action="/submit-config" method="POST">
+        
+      <div class="autenticacao-rede">
+        <h1>IOT KIT</h1>
 
-        <div class="autenticacao-rede">
-            <h1>IOT KIT</h1>
-            <h2>Autenticação de Rede</h2>
+        <h2>Autenticação de Rede</h2>
 
-            <!-- SSID -->
-            <label for="ssid">SSID da Rede:</label>
-            <input type="text" id="ssid" name="ssid" placeholder="Ex: senai123">
+        <!-- SSID -->
+        <label for="ssid">SSID da Rede:</label>
+        <input
+          type="text"
+          id="ssid"
+          name="ssid"
+          placeholder="Senai9473"
+          required
+        />
 
-            <!-- Senha -->
-            <label for="senha">Senha da Rede:</label>
-            <input type="password" id="senha" name="senha" placeholder="Ex: senai123">
+        <!-- Senha -->
+        <label for="senha">Senha da Rede:</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="94732846"
+          required
+        />
+      </div>
 
-            <!-- Mostrar senha -->
-            <label for="show-password">Mostrar senha</label>
-            <input type="checkbox" id="show-password" onclick="togglePassword()">
+      <div class="enderecos-rede">
+        <h2>Endereços de Rede</h2>
 
+        <label>Endereço IP:</label>
+
+        <!-- IP Dinâmico ou Estático -->
+        <input
+          type="radio"
+          id="ip-dinamico"
+          name="ip-type"
+          value="dinamico"
+          checked
+        />
+        <label for="ip-dinamico">IP Dinâmico</label>
+        <input type="radio" id="ip-estatico" name="ip-type" value="estatico" />
+        <label for="ip-estatico">IP Estático</label>
+
+        <div id="options">
+          <!-- Gateway da Rede -->
+          <label for="gateway">Gateway da Rede:</label>
+          <input
+            type="text"
+            id="gateway"
+            name="gateway"
+            placeholder="192.168.10.1"
+            required
+          />
+
+          <!-- Máscara de Sub-rede -->
+          <label for="mascara">Máscara de Sub-rede:</label>
+          <input
+            type="text"
+            id="mascara"
+            name="mascara"
+            placeholder="255.255.255.0"
+            required
+          />
+
+          <!-- Endereço IP da Rede -->
+          <label for="ip">Endereço IP da Rede:</label>
+          <input
+            type="text"
+            id="ip"
+            name="ip"
+            placeholder="192.168.10.100"
+            required
+          />
         </div>
+      </div>
 
-        <script>
-            // Mostrar senha digitada no input
-            function togglePassword() {
-                let passwordField = document.getElementById("senha");
-                if (passwordField.type === "password") {
-                    passwordField.type = "text";
-                } else {
-                    passwordField.type = "password";
-                }
-            }
+      <div class="modo-operacao">
+        <h2>Modo de Operação</h2>
 
-        </script>
+        <label>Selecione o modo:</label>
 
+        <!-- Modo Servidor ou Cliente -->
+        <input
+          type="radio"
+          id="modo-servidor"
+          name="modo"
+          value="servidor"
+          checked
+        />
+        <label for="modo-servidor">Servidor (HTTP)</label>
+        <input type="radio" id="modo-cliente" name="modo" value="cliente" />
+        <label for="modo-cliente">Cliente (MQTT)</label>
 
-
-
-
-
-
-
-        <div class="enderecos-rede">
-            <h2>Endereços de Rede</h2>
-
-            <!-- IP Dinâmico ou Estático -->
-
-            <label>Tipo de IP:</label>
-            <input type="radio" id="ip-dinamico" name="ip-type" value="dinamico" checked>
-            <label for="ip-dinamico">IP Dinâmico</label>
-            <input type="radio" id="ip-estatico" name="ip-type" value="estatico">
-            <label for="ip-estatico">IP Estático</label>
-            <div id="options">
-
-                <!-- Gateway da Rede -->
-                <label for="gateway">Gateway da Rede:</label>
-                <input type="text" id="gateway" name="gateway" placeholder="Ex: 192.168.10.1">
-
-                <!-- Máscara de Sub-rede -->
-                <label for="mascara">Máscara de Sub-rede:</label>
-                <input type="text" id="mascara" name="mascara" placeholder="Ex: 255.255.255.0">
-
-                <!-- Endereço IP da Rede -->
-                <label for="ip">Endereço IP da Rede:</label>
-                <input type="text" id="ip" name="ip" placeholder="Ex: 192.168.10.100">
-
-            </div>
-
-
-
-
-
+        <!-- Broker MQTT (aparece apenas se modo cliente for selecionado) -->
+        <div id="broker-div">
+          <label for="broker">Broker (MQTT):</label>
+          <input
+            type="text"
+            id="broker"
+            name="broker"
+            placeholder="123.456.789.012"
+          />
         </div>
+      </div>
 
+      <div class="bluetooth">
+        <h2>Bluetooth</h2>
 
-        <div class="modo-operacao">
-            <h2>Modo de Operação</h2>
+        <label>Habilitar Bluetooth</label>
 
-            <!-- Modo Servidor ou Cliente -->
-            <label>Selecione o Modo:</label>
-            <input type="radio" id="modo-servidor" name="modo" value="servidor" checked>
-            <label for="modo-servidor">Servidor (HTTP)</label>
-            <input type="radio" id="modo-cliente" name="modo" value="cliente">
-            <label for="modo-cliente">Cliente (MQTT)</label>
+        <!--Modo Bluetooth ligado ou desligado-->
+        <input
+          type="radio"
+          id="bluetooth-ligado"
+          name="bt-status"
+          value="bluetooth-ligado"
+          checked
+          required
+        />
+        <label for="bt-ligado">Sim</label>
+        <input
+          type="radio"
+          id="bluetooth-desligado"
+          name="bt-status"
+          value="bluetooth-desligado"
+          required
+        />
+        <label for="bt-desligado">Não</label>
 
-            <!-- Broker MQTT (aparece apenas se modo Cliente for selecionado) -->
-            <div id="broker-div" style="display: none;">
-                <label for="broker">Broker (MQTT):</label>
-                <input type="text" id="broker" name="broker" placeholder="Ex: 123.456.789.012">
-            </div>
+        <!-- Campos Bluetooth (aparece apenas se (sim) for selecionado) -->
+        <div id="bluetooth-div">
+          <label for=" nome bluetooth">Nome da rede:</label>
+          <input
+            type="text"
+            id="nome-bluetooth"
+            name="nome-bluetooth"
+            placeholder="Senai072"
+            required
+          />
 
-
+          <label for="pin-bluetooth">PIN:</label>
+          <input
+            type="text"
+            id="pin-bluetooth"
+            name="pin-bluetooth"
+            placeholder="0287362"
+            required
+          />
         </div>
+      </div>
 
+      <div class="banco-dados">
+        <h2>Banco de Dados</h2>
 
+        <label>Usar banco de dados?</label>
 
-        <div class="bluetooth">
-            <h2>Bluetooth</h2>
+        <!-- Integração com banco de dados -->
+        <input
+          type="radio"
+          id="usar-firebase-sim"
+          name="usar-firebase"
+          value="sim"
+          checked
+          required
+        />
+        <label for="usar-firebase-sim">Sim (firebase)</label>
+        <input
+          type="radio"
+          id="usar-firebase-nao"
+          name="usar-firebase"
+          value="nao"
+          required
+        />
+        <label for="usar-firebase-nao">Não</label>
 
-            <!-- Selecionar Bluetooth -->
-            <label>Habilitar Bluetooth</label>
-            <input type="radio" id="bluetooth-ligado" name="bt-status" value="bluetooth-ligado" checked>
-            <label for="bt-ligado">Sim</label>
-            <input type="radio" id="bluetooth-desligado" name="bt-status" value="bluetooth-desligado">
-            <label for="bt-desligado">Não</label>
+        <!-- Campos para o banco de dados (firebase) (aparecem apenas se "Sim" for selecionado) -->
+        <div id="firebase-auth">
+          <label for="email-firebase">Email:</label>
+          <input
+            type="email"
+            id="email-firebase"
+            name="email"
+            placeholder="exemplo@email.com"
+            required
+          />
 
-            <!-- Broker MQTT (aparece apenas se modo Cliente for selecionado) -->
-            <div id="bluetooth-div" style="display: none;">
-                <label for="nome bluetooth">Nome da rede:</label>
-                <input type="text" id="nome-bluetooth" name="nome-bluetooth" placeholder="Senai Anchieta">
-            </div>
+          <label for="senha-firebase">Senha:</label>
+          <input
+            type="password"
+            id="senha-firebase"
+            name="senha"
+            placeholder="Autenticação"
+            required
+          />
 
-            <div id="bluetooth-div" style="display: none;">
-                <label for="pin-bluetooth">PIN:</label>
-                <input type="text" id="pin-bluetooth" name="pin-bluetooth" placeholder="0287362">
-            </div>
+          <label for="chave-api">Chave API:</label>
+          <input
+            type="text"
+            id="chave-api"
+            name="chave-api"
+            placeholder="Digite sua chave API"
+            required
+          />
+
+          <label for="url-banco">URL do Banco de Dados:</label>
+          <input
+            type="text"
+            id="url-banco"
+            name="url-banco"
+            placeholder="URL do banco de dados"
+            required
+          />
+
+          <label for="porta-padrao">Porta Padrão:</label>
+          <input
+            type="number"
+            id="porta-padrao"
+            name="porta-padrao"
+            placeholder="1883"
+            required
+          />
         </div>
+      </div>
 
-
-
-        <div class="banco-dados">
-            <h2>Banco de Dados</h2>
-
-            <!-- Integração com Firebase -->
-            <label>Usar Firebase?</label>
-            <input type="radio" id="usar-firebase-sim" name="usar-firebase" value="sim" checked>
-            <label for="usar-firebase-sim">Sim</label>
-            <input type="radio" id="usar-firebase-nao" name="usar-firebase" value="nao">
-            <label for="usar-firebase-nao">Não</label>
-
-            <!-- Campos para o Firebase (aparecem apenas se "Sim" for selecionado) -->
-            <div id="firebase-auth">
-                <label for="email-firebase">Email:</label>
-                <input type="email" id="email-firebase" name="email" placeholder="Ex: exemplo@email.com">
-
-                <label for="senha-firebase">Senha:</label>
-                <input type="password" id="senha-firebase" name="senha" placeholder="Autenticação">
-
-                <label for="chave-api">Chave API:</label>
-                <input type="text" id="chave-api" name="chave-api" placeholder="Digite sua chave API">
-
-                <label for="url-banco">URL do Banco de Dados:</label>
-                <input type="text" id="url-banco" name="url-banco" placeholder="URL do banco de dados">
-
-                <label for="porta-padrao">Porta Padrão:</label>
-                <input type="number" id="porta-padrao" name="porta-padrao" placeholder="Ex: 8080">
-            </div>
-
-        </div>
-
-    
-
-
-        <div class="submit-btn">
-            <button type="submit">Enviar</button>
-        </div>
-
+      <div class="submit-btn">
+        <button type="submit">Enviar</button>
+      </div>
     </form>
-    <script type="module" src="script.js"></script>
-</body>
-
+  </body>
 </html>
