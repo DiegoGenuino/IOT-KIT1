@@ -66,6 +66,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
+    
 }
 
 input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
@@ -146,14 +147,6 @@ button[type="submit"]:hover {
     padding: 40px;
     margin-top: 10px;
     padding-top: 10px;
-}
-
-#bluetooth{
-    background-color: #000000;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 30px;
-    margin-top: 10px;
 }
 
 #show-password {
