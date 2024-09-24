@@ -119,8 +119,6 @@ button[type="submit"]:hover {
     margin-top: 20px;
 }
 
-/*Porque essa parte tá comentada???
-
 
 
 /* Responsividade */
@@ -140,14 +138,8 @@ button[type="submit"]:hover {
 }
     */
 
-<<<<<<< HEAD
 
 .autenticacao-rede, .enderecos-rede, .modo-operacao, .bluetooth, .banco-dados{
-=======
-/*Se são todas iguais, não era mais facil aplicar essas configurações
-a sections em geral e tonar as div em section*/
-.autenticacao-rede {
->>>>>>> 4dbe0182f16cd7913eec2ba6139525e1f39dfc25
     background-color: #000000;
     border: 1px solid black;
     border-radius: 10px;
@@ -168,9 +160,6 @@ a sections em geral e tonar as div em section*/
     display: inline-block;
 }
 
-.blue_choose{
-    display: flex;
-}
 
  /*
  input[type="radio"], label {
